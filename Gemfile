@@ -1,7 +1,7 @@
 source "https://rubygems.org"
-ruby "2.6.3"
+ruby "2.7.2"
 
-gem "activerecord", "~> 5.1"
+gem "activerecord", "~> 6.1.0"
 gem "activesupport"
 gem "rollbar"
 gem "activerecord-import"
@@ -9,7 +9,6 @@ gem "activerecord-import"
 group :development, :test do
   gem "pg"
   gem "pry"
-  gem "mysql2", "0.4.10"
   gem "standalone_migrations"
   gem "timecop"
   gem "paranoia"
@@ -17,7 +16,6 @@ end
 
 group :development do
   gem "rdoc", "~> 3.12"
-  gem "bundler", "~> 1.0"
   gem "jeweler", git: "https://github.com/technicalpickles/jeweler", branch: "master"
   gem "simplecov", ">= 0"
 end

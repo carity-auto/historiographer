@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["brettshollenberger".freeze]
-  s.date = "2020-05-04"
+  s.date = "2021-06-03"
   s.description = "Creates separate tables for each history table".freeze
   s.email = "brett.shollenberger@gmail.com".freeze
   s.extra_rdoc_files = [
@@ -59,56 +59,37 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://github.com/brettshollenberger/historiographer".freeze
   s.licenses = ["MIT".freeze]
-  s.rubygems_version = "3.0.3".freeze
+  s.rubygems_version = "3.1.4".freeze
   s.summary = "Create histories of your ActiveRecord tables".freeze
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
+  end
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<activerecord>.freeze, ["~> 5.1"])
-      s.add_runtime_dependency(%q<activesupport>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<rollbar>.freeze, [">= 0"])
-      s.add_runtime_dependency(%q<activerecord-import>.freeze, [">= 0"])
-      s.add_development_dependency(%q<pg>.freeze, [">= 0"])
-      s.add_development_dependency(%q<pry>.freeze, [">= 0"])
-      s.add_development_dependency(%q<mysql2>.freeze, ["= 0.4.10"])
-      s.add_development_dependency(%q<standalone_migrations>.freeze, [">= 0"])
-      s.add_development_dependency(%q<timecop>.freeze, [">= 0"])
-      s.add_development_dependency(%q<paranoia>.freeze, [">= 0"])
-      s.add_development_dependency(%q<rdoc>.freeze, ["~> 3.12"])
-      s.add_development_dependency(%q<bundler>.freeze, ["~> 1.0"])
-      s.add_development_dependency(%q<jeweler>.freeze, [">= 0"])
-      s.add_development_dependency(%q<simplecov>.freeze, [">= 0"])
-    else
-      s.add_dependency(%q<activerecord>.freeze, ["~> 5.1"])
-      s.add_dependency(%q<activesupport>.freeze, [">= 0"])
-      s.add_dependency(%q<rollbar>.freeze, [">= 0"])
-      s.add_dependency(%q<activerecord-import>.freeze, [">= 0"])
-      s.add_dependency(%q<pg>.freeze, [">= 0"])
-      s.add_dependency(%q<pry>.freeze, [">= 0"])
-      s.add_dependency(%q<mysql2>.freeze, ["= 0.4.10"])
-      s.add_dependency(%q<standalone_migrations>.freeze, [">= 0"])
-      s.add_dependency(%q<timecop>.freeze, [">= 0"])
-      s.add_dependency(%q<paranoia>.freeze, [">= 0"])
-      s.add_dependency(%q<rdoc>.freeze, ["~> 3.12"])
-      s.add_dependency(%q<bundler>.freeze, ["~> 1.0"])
-      s.add_dependency(%q<jeweler>.freeze, [">= 0"])
-      s.add_dependency(%q<simplecov>.freeze, [">= 0"])
-    end
+  if s.respond_to? :add_runtime_dependency then
+    s.add_runtime_dependency(%q<activerecord>.freeze, ["~> 6.1.0"])
+    s.add_runtime_dependency(%q<activesupport>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<rollbar>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<activerecord-import>.freeze, [">= 0"])
+    s.add_development_dependency(%q<pg>.freeze, [">= 0"])
+    s.add_development_dependency(%q<pry>.freeze, [">= 0"])
+    s.add_development_dependency(%q<standalone_migrations>.freeze, [">= 0"])
+    s.add_development_dependency(%q<timecop>.freeze, [">= 0"])
+    s.add_development_dependency(%q<paranoia>.freeze, [">= 0"])
+    s.add_development_dependency(%q<rdoc>.freeze, ["~> 3.12"])
+    s.add_development_dependency(%q<jeweler>.freeze, [">= 0"])
+    s.add_development_dependency(%q<simplecov>.freeze, [">= 0"])
   else
-    s.add_dependency(%q<activerecord>.freeze, ["~> 5.1"])
+    s.add_dependency(%q<activerecord>.freeze, ["~> 6.1.0"])
     s.add_dependency(%q<activesupport>.freeze, [">= 0"])
     s.add_dependency(%q<rollbar>.freeze, [">= 0"])
     s.add_dependency(%q<activerecord-import>.freeze, [">= 0"])
     s.add_dependency(%q<pg>.freeze, [">= 0"])
     s.add_dependency(%q<pry>.freeze, [">= 0"])
-    s.add_dependency(%q<mysql2>.freeze, ["= 0.4.10"])
     s.add_dependency(%q<standalone_migrations>.freeze, [">= 0"])
     s.add_dependency(%q<timecop>.freeze, [">= 0"])
     s.add_dependency(%q<paranoia>.freeze, [">= 0"])
     s.add_dependency(%q<rdoc>.freeze, ["~> 3.12"])
-    s.add_dependency(%q<bundler>.freeze, ["~> 1.0"])
     s.add_dependency(%q<jeweler>.freeze, [">= 0"])
     s.add_dependency(%q<simplecov>.freeze, [">= 0"])
   end
