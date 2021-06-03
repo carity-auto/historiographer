@@ -50,5 +50,5 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-require 'standalone_migrations'
-StandaloneMigrations::Tasks.load_tasks
+# require 'standalone_migrations'
+# StandaloneMigrations::Tasks.load_tasks
