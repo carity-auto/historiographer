@@ -131,17 +131,13 @@ module Historiographer
       super
     end
 
-    def history_on(columns)
-      @history_on_columns = columns
-    end
-
     def historiographer_changes?
       raise "Unsupported Rails version" if Rails.version.to_f < 6
 
-      if @history_on_columns.nil?
+      if @@history_on_columns.nil?
         saved_changes?
       else
-        @history_on_columns.find { |col| saved_change_to_attribute?(col) }.present?  
+        @@history_on_columns.find { |col| saved_change_to_attribute?(col) }.present?  
       end
     end
     #
@@ -254,6 +250,10 @@ module Historiographer
   end
 
   class_methods do
+
+    def history_on(columns)
+      @@history_on_columns = columns
+    end
 
     #
     # E.g. SponsoredProductCampaign => SponsoredProductCampaignHistory
