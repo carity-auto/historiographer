@@ -27,8 +27,10 @@ module Historiographer
       class_name = original_table_name.classify
       klass      = Object.const_set(class_name, class_definer)
       original_columns = klass.columns.reject { |c| c.name == "id" || except.include?(c.name) || (only.any? && only.exclude?(c.name)) || no_business_columns }
+      foreign_key_column = klass.columns.select { |c| c.name == "id" }.first
 
-      integer foreign_key.to_sym, null: false
+      send(foreign_key_column.type, foreign_key.to_sym, null: false)
+
 
       original_columns.each do |column|
         opts = {}

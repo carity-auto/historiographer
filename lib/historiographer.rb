@@ -131,12 +131,17 @@ module Historiographer
       super
     end
 
+    def history_on(columns)
+      @history_on_columns = columns
+    end
+
     def historiographer_changes?
-      case Rails.version.to_f
-      when 0..5 then changed? && valid?
-      when 5.1..6.3 then saved_changes?
+      raise "Unsupported Rails version" if Rails.version.to_f < 6
+
+      if @history_on_columns.nil?
+        saved_changes?
       else
-        raise "Unsupported Rails version"
+        @history_on_columns.find { |col| saved_change_to_attribute?(col) }.present?  
       end
     end
     #
@@ -151,6 +156,10 @@ module Historiographer
     attr_accessor :history_user_id
 
     class_name = "#{base.name}History"
+
+    def history_user_id
+      @history_user_id || (Current.user.present? ? Current.user.id : nil) || 75 # System User
+    end
 
     begin
       class_name.constantize
