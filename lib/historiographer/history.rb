@@ -78,7 +78,7 @@ module Historiographer
       #
       # To use histories, a user class must be defined.
       #
-      belongs_to :user, foreign_key: :history_user_id
+      belongs_to :user, foreign_key: :history_user_id, class_name: 'CarityUser'
 
       # 
       # Historiographer is opinionated about how History classes
