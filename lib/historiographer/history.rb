@@ -112,7 +112,9 @@ module Historiographer
       if base.respond_to?(association_name)
         raise "#{base} already has ##{association_name} association. Talk to Brett if this is a legit use case."
       else
-        belongs_to association_name, class_name: foreign_class_name
+        # Note: need 'optional: true' below to avoid a "ActiveRecord::RecordInvalid (Validation failed: `X` must exist)"
+        # when destroying a record for a model that uses acts_as_paranoid
+        belongs_to association_name, class_name: foreign_class_name , optional: true
       end
 
       #
